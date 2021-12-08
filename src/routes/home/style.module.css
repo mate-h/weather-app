@@ -1,0 +1,62 @@
+.home {
+  padding-top: 56px;
+}
+
+/* Baseline grid */
+.baseliner {
+  /* opacity: 0; */
+  clip: unset;
+  position: absolute;
+  min-height: 100vh;
+  content: '';
+  display: block;
+  pointer-events: none;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 1px, transparent 1px)
+      left top / 8px 100% repeat-x,
+    linear-gradient(rgba(0, 0, 0, 0.24) var(--pixel), transparent var(--pixel))
+      left top / 100% 4px repeat-y;
+}
+
+.app-background::before {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  background-image: var(--src);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -3;
+  will-change: transform;
+}
+
+.exclude {
+  opacity: 1;
+}
+
+.app-background-cover > *:not(.exclude) {
+  position: relative;
+  z-index: 1;
+}
+.app-background-cover::before {
+  position: absolute;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 1px, transparent 1px)
+      left top / 8px 100% repeat-x,
+    linear-gradient(rgba(0, 0, 0, 1) var(--pixel), transparent var(--pixel))
+      left top / 100% 4px repeat-y;
+}

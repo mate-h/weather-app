@@ -1,0 +1,416 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+#app {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'SF Icons';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/assets/fonts/SFIcons.woff2') format('woff2');
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7W0Q5n-wU.woff2)
+    format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa0ZL7W0Q5n-wU.woff2)
+    format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2ZL7W0Q5n-wU.woff2)
+    format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1pL7W0Q5n-wU.woff2)
+    format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2pL7W0Q5n-wU.woff2)
+    format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7W0Q5n-wU.woff2)
+    format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v2/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+/* Device pixel ratio */
+:root {
+  /* 1 pixel */
+  --displayScale: 1;
+  --pixel: 1px;
+
+  --rem: 16; /* root element unit */
+
+  /* Material Design type scale */
+  --text-7xl: 96;
+  --text-6xl: 60;
+  --text-5xl: 48;
+  --text-4xl: 34;
+  --text-3xl: 30;
+  --text-2xl: 24;
+  --text-xl: 20;
+  --text-lg: 18;
+  --text-base: 16;
+  --text-sm: 14;
+  --text-xs: 12;
+  --text-2xs: 10;
+
+  /** Material Design states */
+  --state-hover-light: 0.04;
+  --state-hover-dark: 0.08;
+  --state-hover-image: 0.12;
+  --state-focus-light: 0.12;
+  --state-focus-dark: 0.24;
+  --state-focus-image: 0.36;
+  --state-selected-light: 0.08;
+  --state-selected-dark: 0.16;
+  --state-selected-image: 0.24;
+  --state-activated-light: 0.12;
+  --state-activated-dark: 0.24;
+  --state-activated-image: 0.36;
+  --state-pressed-light: 0.16;
+  --state-pressed-dark: 0.32;
+  --state-pressed-image: 0.48;
+  --state-dragged-light: 0.08;
+  --state-dragged-dark: 0.16;
+  --state-dragged-image: 0.36;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 1.5dppx) {
+  :root {
+    --displayScale: 2;
+    --pixel: 0.5px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2.5),
+  only screen and (min-device-pixel-ratio: 2.5),
+  only screen and (min-resolution: 2.5dppx) {
+  :root {
+    --displayScale: 3;
+    --pixel: 0.34px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3.5),
+  only screen and (min-device-pixel-ratio: 3.5),
+  only screen and (min-resolution: 3.5dppx) {
+  :root {
+    --displayScale: 4;
+    --pixel: 0.25px;
+  }
+}
+
+/* Material Design Typography Components */
+/* Leading must be a value divisible by 4 to maintain the grid. */
+@responsive {
+  .headline1 {
+    @apply text-7xl;
+    @apply font-light;
+    --leading: 112;
+    letter-spacing: calc(-1.5 / var(--text-7xl) * 1em);
+    font-variation-settings: 'wght' 250;
+  }
+  .headline2 {
+    @apply text-6xl;
+    @apply font-light;
+    --leading: 72;
+    letter-spacing: calc(-0.5 / var(--text-6xl) * 1em);
+    font-variation-settings: 'wght' 300;
+  }
+  .headline3 {
+    @apply text-5xl;
+    @apply font-normal;
+    --leading: 56;
+    font-variation-settings: 'wght' 350;
+  }
+  .headline4 {
+    @apply text-4xl;
+    @apply font-normal;
+    --leading: 40;
+    letter-spacing: calc(0.25 / var(--text-4xl) * 1em);
+    font-variation-settings: 'wght' 400;
+  }
+  .headline5 {
+    @apply text-2xl;
+    @apply font-normal;
+    --leading: 28;
+    font-variation-settings: 'wght' 450;
+  }
+  .headline6 {
+    @apply text-xl;
+    @apply font-medium;
+    --leading: 24;
+    letter-spacing: calc(0.15 / var(--text-xl) * 1em);
+    font-variation-settings: 'wght' 550;
+  }
+  .subtitle1 {
+    @apply text-base;
+    @apply font-normal;
+    --leading: 24;
+    letter-spacing: calc(0.15 / var(--text-base) * 1em);
+  }
+  .subtitle2 {
+    @apply text-sm;
+    @apply font-medium;
+    --leading: 24;
+    letter-spacing: calc(0.1 / var(--text-sm) * 1em);
+    font-variation-settings: 'wght' 550;
+  }
+  .body1 {
+    @apply text-base;
+    @apply font-normal;
+    --leading: 28;
+    letter-spacing: calc(0.44 / var(--text-base) * 1em);
+  }
+  .body2 {
+    @apply text-sm;
+    @apply font-normal;
+    --leading: 20;
+    letter-spacing: calc(0.25 / var(--text-sm) * 1em);
+  }
+  .button {
+    @apply text-sm;
+    @apply font-medium;
+    @apply uppercase;
+    --leading: 16;
+    letter-spacing: calc(1.35 / var(--text-sm) * 1em);
+    font-feature-settings: 'cpsp';
+    font-variation-settings: 'wght' 550;
+  }
+  .caption {
+    @apply text-xs;
+    @apply font-normal;
+    --leading: 16;
+    letter-spacing: calc(0.4 / var(--text-xs) * 1em);
+  }
+  .overline {
+    @apply text-2xs;
+    @apply font-medium;
+    @apply uppercase;
+    --leading: 16;
+    letter-spacing: calc(1.5 / var(--text-2xs) * 1em);
+    font-feature-settings: 'cpsp';
+    font-variation-settings: 'wght' 550;
+  }
+}
+
+/* Baselining to 4dp grid */
+p {
+  --hl: var(--leading) / 2;
+  margin-bottom: calc(var(--hl) * -0.0625rem);
+  line-height: calc(var(--leading) * 0.0625rem);
+}
+p::before {
+  display: inline-block;
+  height: calc((var(--leading) + var(--top, 0)) * 0.0625rem);
+  content: '';
+}
+p::after {
+  display: inline-block;
+  vertical-align: calc((var(--bottom, 0) + var(--hl)) * -0.0625rem);
+  /* Previewing element height in debug only, not significant */
+  /* height: calc((var(--bottom, 0) + var(--hl)) * 0.25rem); */
+  content: '';
+}
+
+i,
+.sf-icon {
+  font-family: 'SF Icons';
+  font-style: normal;
+}
+
+i[tabindex] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Enable tooltips for mobile devices */
+[title]:focus {
+  outline: none;
+  border: none;
+}
+@media (pointer: coarse), (hover: none) {
+  [title] {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+  }
+  [title]:focus::after {
+    content: attr(title);
+    position: absolute;
+    left: 100%;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #212121;
+    width: 160px;
+    padding: 4px;
+    z-index: 1;
+    border-radius: 0.25rem;
+
+    font-family: var(--font-family);
+    @apply text-xs;
+    @apply font-normal;
+    --leading: 16;
+    letter-spacing: calc(0.4 / var(--text-xs) * 1em);
+    text-transform: none;
+  }
+}
+
+.safari .shadow-hairline {
+  box-shadow: 0 0 0 1px var(--color2) !important;
+}
+
+.shadow-hairline {
+  box-shadow: 0 0 0 var(--pixel) var(--color);
+}
+
+.shadow-hairline-dark {
+  --color: rgba(255, 255, 255, calc(0.12 * var(--displayScale)));
+  --color2: rgba(255, 255, 255, 0.12);
+}
+
+.shadow-hairline-light {
+  --color: rgba(0, 0, 0, calc(0.06 * var(--displayScale)));
+  --color2: rgba(0, 0, 0, 0.06);
+}
+
+@responsive {
+  .dropdown-right-1::after {
+    right: 0.25rem;
+  }
+  .dropdown-right-2::after {
+    right: 0.5rem;
+  }
+  .dropdown-right-3::after {
+    right: 0.75rem;
+  }
+}
+.dropdown.up::after {
+  content: '\100187';
+}
+.dropdown::after {
+  content: '\100188';
+  font-family: 'SF Icons';
+  color: rgba(0, 0, 0, 0.54);
+  position: absolute;
+  @apply text-xs;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.dropdown:focus::after {
+  @apply text-primary;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.button-states::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--states-bg);
+  pointer-events: none;
+  transition: background-color linear 70ms;
+}
+
+.button-states-dark {
+  --states-bg: rgba(255, 255, 255, 0);
+}
+
+.button-states-dark:hover {
+  --states-bg: rgba(255, 255, 255, var(--state-hover-dark));
+}
+
+.button-states-dark:focus {
+  --states-bg: rgba(255, 255, 255, var(--state-focus-dark));
+}
+
+.button-states-dark:active {
+  --states-bg: rgba(255, 255, 255, var(--state-pressed-dark));
+}
+
+.button-states-light {
+  --states-bg: rgba(0, 0, 0, 0);
+}
+
+.button-states-light:hover {
+  --states-bg: rgba(0, 0, 0, var(--state-hover-light));
+}
+
+.button-states-light:focus {
+  --states-bg: rgba(0, 0, 0, var(--state-focus-light));
+}
+
+.button-states-light:active {
+  --states-bg: rgba(0, 0, 0, var(--state-pressed-light));
+}
+
+.full-width-sticky {
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
